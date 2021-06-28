@@ -17,25 +17,30 @@ public class RandomNumberGuesser {
         // initializing attributes
 
         String playAgain;
-        // int randNum = RNG.rand();
-        int reset;
+        int randNum = RNG.rand();
 
         while (count != 0) {
-            count++;
+
             numOfGuess = count++;
-            int randNum = RNG.rand();
+            if (count == 0) {
+                randNum = RNG.rand();
+
+            }
             System.out.println("This is the random num " + randNum);
             System.out.println("This is the initial count " + count);
-
             System.out.println("Welcome to Random Number Guesser!");
             System.out.println("Please enter a number between 1-100");
-            System.out.println("Enter your first guess!");
+            System.out.println("Enter your " + numOfGuess + " guess!");
+
+            count++;
             int userNum = obj.nextInt();
             obj.nextLine();
 
             System.out.println("You guessed " + userNum);
 
             if (randNum == userNum) {
+                numOfGuess = numOfGuess - 1;
+                System.out.println("Number of guesses is " + numOfGuess);
                 System.out.println("Congratulations, you guessed correctly.");
                 System.out.println("Try again? (yes or no)");
                 playAgain = obj.nextLine();
@@ -44,20 +49,26 @@ public class RandomNumberGuesser {
                 if (playAgain.contains("yes")) {
                     count = numOfGuess;
                 } else if (playAgain.contains("no")) {
+                    System.out.println("Thanks for playing...");
                     count = 0;
                 }
 
             } else if (randNum > userNum) {
                 lowGuess = userNum;
-
-                nextGuess = obj.nextInt();
+                System.out.println("Number of guesses is " + numOfGuess);
+                System.out.println("Your guess is too low.");
+                highGuess = 100;
                 RNG.inputValidation(nextGuess, lowGuess, highGuess);
+                nextGuess = obj.nextInt();
             } else if (randNum < userNum) {
                 highGuess = userNum;
-                nextGuess = obj.nextInt();
+                System.out.println("Number of guesses is " + numOfGuess);
+                System.out.println("Your guess is too high.");
+                lowGuess = 0;
                 RNG.inputValidation(nextGuess, lowGuess, highGuess);
+                nextGuess = obj.nextInt();
             }
-
+            // RNG.inputValidation(nextGuess, lowGuess, highGuess);
         }
 
     }
