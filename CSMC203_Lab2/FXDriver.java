@@ -25,7 +25,8 @@ public class FXDriver extends Application {
 		//  instantiate the FXMainPane, name it root
 		FXMainPane root = new FXMainPane();
 		//  set the scene to hold root
-		Scene scene = new Scene(root, 500, 500);
+		Scene scene = new Scene(root, 400, 400);
+
 		stage.setScene(scene);
 		//set stage title
 		stage.setTitle("Hello World GUI");

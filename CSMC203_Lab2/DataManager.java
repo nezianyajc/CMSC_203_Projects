@@ -27,6 +27,9 @@ public class DataManager {
 	public String getChinese() {
 		return "Ni hau";
 	}
-
+	
+	public String getSpanish() {
+		return "Que Onda?";
+	}
 
 }

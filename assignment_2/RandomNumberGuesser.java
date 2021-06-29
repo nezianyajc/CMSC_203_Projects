@@ -29,8 +29,8 @@ public class RandomNumberGuesser {
                 // resets random number
             }
             /* Uncomment the 2 lines below to test each condition */
-            System.out.println("This is the random num " + randNum);
-            System.out.println("This is the initial count " + count);
+            // System.out.println("This is the random num " + randNum);
+            // System.out.println("This is the initial count " + count);
             if (count == 1) {
                 // Header only appears on first attempt
                 System.out.println("Welcome to Random Number Guesser! Pleaae enter your name");
