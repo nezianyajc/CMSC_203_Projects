@@ -14,22 +14,27 @@ public class RandomNumberGuesser {
         int lowGuess = 0;
         int highGuess = 0;
         int numOfGuess = 0;
-        // initializing attributes
+        // initializing attributes to zero.
 
         String playAgain;
+        String userName = "";
         int randNum = RNG.rand();
+        // initializing class method
 
         while (count != 0) {
-
+            // setting value to 0 escapes the loop
             numOfGuess = count;
-            if (count == 0) {
+            if (count == 1) {
                 randNum = RNG.rand();
-
+                // resets random number
             }
+            /* Uncomment the 2 lines below to test each condition */
             System.out.println("This is the random num " + randNum);
             System.out.println("This is the initial count " + count);
             if (count == 1) {
-                System.out.println("Welcome to Random Number Guesser!");
+                // Header only appears on first attempt
+                System.out.println("Welcome to Random Number Guesser! Pleaae enter your name");
+                userName = obj.nextLine();
                 System.out.println("Please enter a number between 1-100");
             }
             System.out.println("Enter your " + numOfGuess + " guess!");
@@ -39,12 +44,12 @@ public class RandomNumberGuesser {
             obj.nextLine();
             if (count > 1) {
                 nextGuess = userNum;
+                // assigns next guess on 2nd attempt
             }
 
             System.out.println("You guessed " + userNum);
 
             if (randNum == userNum) {
-                // numOfGuess = numOfGuess - 1;
                 System.out.println("Number of guesses is " + numOfGuess);
                 System.out.println("Congratulations, you guessed correctly.");
                 System.out.println("Try again? (yes or no)");
@@ -54,7 +59,7 @@ public class RandomNumberGuesser {
                 if (playAgain.contains("yes")) {
                     count = 1;
                 } else if (playAgain.contains("no")) {
-                    System.out.println("Thanks for playing...");
+                    System.out.println("Thanks for playing..." + userName);
                     count = 0;
                 }
 
