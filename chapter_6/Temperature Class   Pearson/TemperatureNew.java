@@ -2,16 +2,13 @@ import java.util.Scanner;
 
 public class TemperatureNew {
 
-    private double inp = 0;
-
     public static void main(String[] args) {
 
-        Scanner tempObj = new Scanner(System.in);
-        System.out.print("Enter a Fahrenheit Temperature: ");
-        double inp = tempObj.nextDouble();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a temperature in Fahrenheit: ");
+        double tempF = scanner.nextDouble();
 
-        Temperature temp = new Temperature(inp);
-        temp.setFahrenheit(inp);
+        Temperature temp = new Temperature(tempF);
 
         System.out.println("The temperature in Fahrenheit is " + temp.getFahrenheit());
         System.out.println("The temperature in Celsius is " + temp.getCelsius());
