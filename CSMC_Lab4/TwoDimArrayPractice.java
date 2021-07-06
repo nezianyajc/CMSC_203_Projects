@@ -117,6 +117,14 @@ public class TwoDimArrayPractice extends JFrame {
         // where row is the index of the array's current row
         // and column is the index of the array's current column
         // Write your code here:
+    	for (int row = 0; row < intArray[row].length; column++)
+    	{
+    		for(int column = 0; column < intArray[row].length; column++) {
+    			System.out.print(intArray[row][column]);
+    			animate(row, column);
+    		}
+    		System.out.println();
+    	}
 
     }
     // end of printArray method
@@ -136,6 +144,15 @@ public class TwoDimArrayPractice extends JFrame {
         // where row is the index of the array's current row
         // and column is the index of the array's current column
         // Write your code here:
+    	System.out.println("Values to row " + row + "set to "+ value);
+    	for(int i = 0; i < intArray.length; i++) {
+    		if (i == row) {
+    			for(int j = 0; j < intArray[i].length; j++) {
+    				value = intArray[i][j];
+    				animate(row, column);
+    			}
+    		}
+    	}
 
     }
     // end of setValues method
@@ -156,8 +173,16 @@ public class TwoDimArrayPractice extends JFrame {
         // column is the index of the array's current column
         // minimum is the local variable storing the current minimum
         // Write your code here:
-
-        return 0; // replace this line with your return statement
+    	System.out.println("Minimum from column" + column);
+    	int minVal = Integer.MAX_VALUE;
+    	for(int i = 0; i < intArray.length; i++) {
+    		if (minVal > intArray[i][column]) {
+    			minVal = intArray[i][column];
+    		}
+    		animate(row, column);
+    	}
+    	System.out.println("In column " + column + " you found a min value of " + minVal);
+        return minVal; // replace this line with your return statement
     }
     // end of findMinimumn method
 
@@ -177,6 +202,17 @@ public class TwoDimArrayPractice extends JFrame {
         // column is the index of the array's current column, and
         // num is the local variable storing the current frequency count
         // Write your code here:
+    	System.out.println("Your frequency count is " + value);
+    	int accum = 0;
+    	for (int row = 0; row < intArray.length; row++) {
+    		for (int column = 0; column <intArray[row].length; column++)
+    		{
+    			if(intArray[row][column] == value) {
+    				accum++;
+    			}
+        		animate(row, column);
+    		}
+    	}
 
         return 0; // replace this line with your return statement
     }
@@ -459,7 +495,7 @@ public class TwoDimArrayPractice extends JFrame {
         public void run() {
             startActivity(bc.getActivity());
             enableButtons();
-            // deselectButtons( );
+             deselectButtons( );
         }
     }
 }
