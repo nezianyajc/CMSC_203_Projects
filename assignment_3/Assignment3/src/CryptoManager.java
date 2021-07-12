@@ -1,8 +1,8 @@
 
 public class CryptoManager {
 
-	private static final char LOWER_BOUND = 32;
-	private static final char UPPER_BOUND = 95;
+	private static final char LOWER_BOUND = ' ';
+	private static final char UPPER_BOUND = '_';
 	private static final int RANGE = UPPER_BOUND - LOWER_BOUND + 1;
 
 	/**
@@ -15,20 +15,16 @@ public class CryptoManager {
 	 *         character is outside
 	 */
 	public static boolean stringInBounds(String plainText) {
+		// throw new RuntimeException("method not implemented");
 		boolean alertOutofBounds = true;
-		char[] stringArr = plainText.toCharArray();
-		for (int i = 0; i < stringArr.length; i++) {
-			int ascii = (int) stringArr[i];
-			if (ascii < LOWER_BOUND || ascii > UPPER_BOUND) {
+		for (int i = 0; i < plainText.length(); i++) {
+			if ((plainText.charAt(i)) < LOWER_BOUND || (plainText.charAt(i) > UPPER_BOUND)) {
 				alertOutofBounds = false;
-				break;
 			} else {
 				alertOutofBounds = true;
-				break;
 			}
 		}
 		return alertOutofBounds;
-		// throw new RuntimeException("method not implemented");
 	}
 
 	/**
@@ -41,7 +37,21 @@ public class CryptoManager {
 	 * @return the encrypted string
 	 */
 	public static String encryptCaesar(String plainText, int key) {
-		throw new RuntimeException("method not implemented");
+		String hiddenText = "";
+		if (stringInBounds(plainText)) {
+			String stringArr = plainText;
+			for (int i = 0; i < stringArr.length(); i++) {
+				char c = stringArr.charAt(i);
+				int encryptF = ((int) c + key);
+				String test = String.valueOf(encryptF);
+				System.out.println(test);
+				while (encryptF > UPPER_BOUND) {
+					encryptF = encryptF - RANGE;
+				}
+				hiddenText += (char) encryptF;
+			}
+		}
+		return hiddenText;
 	}
 
 	/**
