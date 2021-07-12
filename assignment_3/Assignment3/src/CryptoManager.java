@@ -123,6 +123,21 @@ public class CryptoManager {
 	 * @return the decrypted string
 	 */
 	public static String decryptBellaso(String encryptedText, String bellasoStr) {
-		throw new RuntimeException("method not implemented");
+		String plain = encryptedText;
+		String bella = bellasoStr;
+		String decryptedM = "";
+
+		for (int i = 0; i < plain.length(); i++) {
+			char plainC = plain.charAt(i);
+			for (int j = 0; j < bella.length(); j++) {
+				char bellaC = bella.charAt(i % bella.length());
+				int decryptInt = plainC + bellaC;
+				while (decryptInt < (int) LOWER_BOUND) {
+					decryptInt = decryptInt + RANGE;
+				}
+				decryptedM = decryptedM + (char) decryptInt;
+			}
+		}
+		return decryptedM;
 	}
 }
