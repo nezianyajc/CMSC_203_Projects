@@ -48,7 +48,7 @@ public class CryptoManager {
 				while (encryptF > UPPER_BOUND) {
 					encryptF = encryptF - RANGE;
 				}
-				hiddenText += (char) encryptF;
+				hiddenText = hiddenText + (char) encryptF;
 			}
 		}
 		return hiddenText;
@@ -79,7 +79,18 @@ public class CryptoManager {
 	 * @return the plain text string
 	 */
 	public static String decryptCaesar(String encryptedText, int key) {
-		throw new RuntimeException("method not implemented");
+		// throw new RuntimeException("method not implemented");
+		String unhideText = "";
+		String hiddenText = encryptedText;
+		for (int i = 0; i < hiddenText.length(); i++) {
+			char c = hiddenText.charAt(i);
+			int decrypt = ((int) c - key);
+
+			while (decrypt < LOWER_BOUND) {
+				decrypt = decrypt + RANGE;
+			}
+			unhideText = unhideText + (char) decrypt;
+		}
 	}
 
 	/**
