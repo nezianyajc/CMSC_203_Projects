@@ -18,10 +18,10 @@ public class CryptoManager {
 		// throw new RuntimeException("method not implemented");
 		boolean alertOutofBounds = true;
 		for (int i = 0; i < plainText.length(); i++) {
-			if ((plainText.charAt(i)) < LOWER_BOUND || (plainText.charAt(i) > UPPER_BOUND)) {
-				alertOutofBounds = false;
-			} else {
+			if ((plainText.charAt(i)) >= LOWER_BOUND && (plainText.charAt(i) <= UPPER_BOUND)) {
 				alertOutofBounds = true;
+			} else {
+				return false;
 			}
 		}
 		return alertOutofBounds;
