@@ -65,7 +65,24 @@ public class CryptoManager {
 	 * @return the encrypted string
 	 */
 	public static String encryptBellaso(String plainText, String bellasoStr) {
-		throw new RuntimeException("method not implemented");
+		// throw new RuntimeException("method not implemented");
+		String plain = plainText;
+		String bella = bellasoStr;
+		String encryptedM = "";
+
+		for (int i = 0; i < plain.length(); i++) {
+			char plainC = plain.charAt(i);
+			for (int j = 0; j < bella.length(); j++) {
+				char bellaC = bella.charAt(i % bella.length());
+				int encryptInt = plainC + bellaC;
+				while (encryptInt > (int) UPPER_BOUND) {
+					encryptInt = encryptInt - RANGE;
+				}
+				encryptedM = encryptedM + (char) encryptInt;
+			}
+		}
+		return encryptedM;
+
 	}
 
 	/**
@@ -91,6 +108,7 @@ public class CryptoManager {
 			}
 			unhideText = unhideText + (char) decrypt;
 		}
+		return unhideText;
 	}
 
 	/**
