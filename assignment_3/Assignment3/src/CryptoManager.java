@@ -15,16 +15,20 @@ public class CryptoManager {
 	 *         character is outside
 	 */
 	public static boolean stringInBounds(String plainText) {
-
+		boolean alertOutofBounds = true;
 		char[] stringArr = plainText.toCharArray();
 		for (int i = 0; i < stringArr.length; i++) {
-			if (stringArr[i] < LOWER_BOUND || stringArr[i] > UPPER_BOUND) {
-				return false;
+			int ascii = (int) stringArr[i];
+			if (ascii < LOWER_BOUND || ascii > UPPER_BOUND) {
+				alertOutofBounds = false;
+				break;
 			} else {
-				return true;
+				alertOutofBounds = true;
+				break;
 			}
 		}
-		throw new RuntimeException("method not implemented");
+		return alertOutofBounds;
+		// throw new RuntimeException("method not implemented");
 	}
 
 	/**
