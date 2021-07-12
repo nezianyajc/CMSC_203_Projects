@@ -43,8 +43,6 @@ public class CryptoManager {
 			for (int i = 0; i < stringArr.length(); i++) {
 				char c = stringArr.charAt(i);
 				int encryptF = ((int) c + key);
-				String test = String.valueOf(encryptF);
-				System.out.println(test);
 				while (encryptF > UPPER_BOUND) {
 					encryptF = encryptF - RANGE;
 				}
@@ -131,7 +129,7 @@ public class CryptoManager {
 			char plainC = plain.charAt(i);
 			for (int j = 0; j < bella.length(); j++) {
 				char bellaC = bella.charAt(i % bella.length());
-				int decryptInt = plainC + bellaC;
+				int decryptInt = plainC - bellaC;
 				while (decryptInt < (int) LOWER_BOUND) {
 					decryptInt = decryptInt + RANGE;
 				}
