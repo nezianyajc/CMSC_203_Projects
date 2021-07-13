@@ -1,15 +1,21 @@
 public class Area {
 
-    public static double getArea(double radius) {
-        return Math.PI * Math.pow((radius), 2);
+    public static double area(double radius) {
+        return Math.PI * (radius * radius);
     }
 
-    public static double getArea(double width, double length) {
+    public static double area(int width, int length) {
         return length * width;
     }
 
-    public static double getArea(double pi, double height, double radius) {
-        return pi * radius * radius * height;
+    public static double area(double radius, double height) {
+        return Math.PI * radius * radius * height;
+    }
+
+    public static void main(String args[]) {
+        area(2.0);
+        area(3.5, 4.0);
+        area(5, 8);
     }
 
 }

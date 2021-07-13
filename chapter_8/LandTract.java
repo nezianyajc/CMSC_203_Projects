@@ -19,7 +19,7 @@ public class LandTract {
     }
 
     public String toString() {
-        return "LandTract with length" + length + "width" + width;
+        return "LandTract with length " + length + ", width " + width;
     }
 
     public static void main(String[] args) {
@@ -37,7 +37,7 @@ public class LandTract {
         land2.width = obj.nextInt();
         System.out.println(land1.toString() + " and area " + land1.area());
         System.out.println(land2.toString() + " and area " + land2.area());
-        System.out.println(land1.equals(land2) ? "two tracks have same size" : "two tracks have different size");
+        System.out.println(land1.equals(land2) ? "The two tracks have same size" : "two tracks have different size");
     }
 
 }

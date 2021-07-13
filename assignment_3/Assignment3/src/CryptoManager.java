@@ -67,7 +67,7 @@ public class CryptoManager {
 		String plain = plainText;
 		String bella = bellasoStr;
 		String encryptedM = "";
-
+		// if (stringInBounds(plainText)) {
 		for (int i = 0; i < plain.length(); i++) {
 			char plainC = plain.charAt(i);
 			for (int j = 0; j < bella.length(); j++) {
@@ -79,6 +79,7 @@ public class CryptoManager {
 				encryptedM = encryptedM + (char) encryptInt;
 			}
 		}
+		// }
 		return encryptedM;
 
 	}
@@ -97,6 +98,7 @@ public class CryptoManager {
 		// throw new RuntimeException("method not implemented");
 		String unhideText = "";
 		String hiddenText = encryptedText;
+
 		for (int i = 0; i < hiddenText.length(); i++) {
 			char c = hiddenText.charAt(i);
 			int decrypt = ((int) c - key);
