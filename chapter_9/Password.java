@@ -10,31 +10,24 @@ public class Password {
         if(password.length() >= 6) {
             for(int i = 0; i < password.length(); i++){
                 if(Character.isLetterOrDigit(password.charAt(i)) == true ){
-                    System.out.println("Condition met");
                     dig = true;
-                } else {
-                    System.out.println("Invalid Password 1");
-                }
+                } 
 
                 if(Character.isUpperCase(password.charAt(i)) == true ){
-                    System.out.println("Condition2 met");
                     upCase = true;
-                } else {
-                    System.out.println("Invalid Password 2");
-                }
+                } 
 
                 if(Character.isLowerCase(password.charAt(i)) == true ){
-                    System.out.println("Condition3 met");
                     lowCase = true;
-                } else {
-                    System.out.println("Invalid Password 3");
                 }
 
                 if((dig && upCase && lowCase) == true){
                     System.out.println("Valid Password");
                     return true;
-                } else if((dig || upCase || lowCase) == false) {
-                    System.out.println("Invalid Password final pass");
+                } 
+
+                if(dig == false || upCase == false || lowCase == false) {
+                    System.out.println("Invalid password");
                     return false;
                 }
             }
