@@ -11,13 +11,6 @@ public class Plot {
         this.depth = depth;
     }
 
-    // Creates default values
-    public Plot() {
-        this.x = 0;
-        this.y = 0;
-        this.width = 1;
-        this.depth = 1;
-    }
 
     // Passes object as an argument for manipulation
     public Plot(Plot plot) {
