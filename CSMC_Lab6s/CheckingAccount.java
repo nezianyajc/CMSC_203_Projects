@@ -1,11 +1,11 @@
 public class CheckingAccount extends BankAccount {
     private static double FEE = .15;
     private String name;
-    private int initialAmount;
+    private double initialAmount;
     String accountNumber;
 
-    public CheckingAccount(String nam, int iniAmount) {
-        super(nam, iniAmount);
+    public CheckingAccount(String name, int initialAmount) {
+        super(name, initialAmount);
         this.accountNumber = super.getAccountNumber() + "-10";
     }
 

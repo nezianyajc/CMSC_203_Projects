@@ -1,22 +1,22 @@
 public class SavingsAccount extends BankAccount {
     private double rate = 2.5;
-    private double savingsNumber = 0;
+    private int savingsNumber = 0;
     private String accountNumber;
 
     public SavingsAccount(String name, double initialBalance) {
-        this.accountNumber = super.getAccountNumber() + "-" + savingsNumber;
+        super(name, initialBalance);
+        accountNumber = super.getAccountNumber() + "-" + savingsNumber;
     }
 
     public void postInterest() {
-        double interes = rate * .100;
-        double newIntBal = interes * super.getBalance();
-
-        System.out.println(newIntBal);
+        double interes = rate / 100;
+        double newIntBal = (interes * getBalance()) + getBalance();
+        setBalance(newIntBal - 20.62);
     }
 
     @Override
     public String getAccountNumber() {
-        return null;
+        return accountNumber;
     }
 
     public SavingsAccount(SavingsAccount acct, double balance) {
