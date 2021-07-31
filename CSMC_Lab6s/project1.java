@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.xml.namespace.QName;
+
 class Person {
     private String name, address, telephone;
 
@@ -9,8 +11,8 @@ class Person {
         this.telephone = "";
     }
 
-    public void setName(String a) {
-        this.name = a;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -42,7 +44,7 @@ class Person {
         customer.setName(name);
         System.out.print("Enter address of customer:");
         String address = obj.nextLine();
-        customer.setName(address);
+        customer.setAddress(address);
         System.out.print("Enter Phone number of customer: ");
         String tele = obj.nextLine();
         customer.setTelephone(tele);
@@ -50,9 +52,14 @@ class Person {
         String cus = obj.nextLine();
         customer.setCusNum(cus);
         System.out.print("Enter yes/no -- does the customer want to recieve mail?: ");
-        String mailing = obj.nextLine();
-        customer.setMail(Boolean.parseBoolean(mailing));
-        System.out.println("Customer: ");
+        String mailing = "";
+        mailing = obj.nextLine();
+        if (mailing.contains(("yes").toLowerCase())) {
+            customer.setMail(true);
+        } else if (mailing.contains("no")) {
+            customer.setMail(false);
+        }
+        System.out.println("Customer: " + customer.getcustomer());
         System.out.println("Name: " + customer.getName());
         System.out.println("Address: " + customer.getAddress());
         System.out.println("Phone Number: " + customer.getTelephone());
@@ -84,8 +91,8 @@ class Customer extends Person {
         return mail;
     }
 
-    public void setMail(boolean s) {
-        this.mail = s;
+    public void setMail(boolean mail) {
+        this.mail = mail;
     }
 
 }
